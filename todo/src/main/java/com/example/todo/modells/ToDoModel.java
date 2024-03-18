@@ -1,41 +1,15 @@
-package com.example.modells;
+package com.example.todo.modells;
 
 public class ToDoModel {
 
-    private String name;
+    private Long id;
+    private String task;
+    private boolean completed;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    private int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public ToDoModel(Long id, String task, boolean completed) {
         this.id = id;
-    }
-
-    private String description;
-
-    public ToDoModel(String name, int id, String description) {
-        this.name = name;
-        this.id = id;
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        this.task = task;
+        this.completed = completed;
     }
 
 }
