@@ -26,10 +26,12 @@ public class ToDoController {
     @GetMapping("/")
     public ResponseEntity<List<ToDoModel>> getWelcome() {
 
-        List<ToDoModel> todos = new ArrayList(Arrays.asList(
-                new ToDoModel("1 Title", 1, " Description"),
-                new ToDoModel("2 Title", 2, " Description"),
-                new ToDoModel("3 Title", 3, " Description")));
+        /*
+         * List<ToDoModel> todos = new ArrayList(Arrays.asList(
+         * new ToDoModel("1 Title", 1, " Description"),
+         * new ToDoModel("2 Title", 2, " Description"),
+         * new ToDoModel("3 Title", 3, " Description")));
+         */
 
         /*
          * ToDoItem todoItem = new TodoItem();
@@ -44,7 +46,11 @@ public class ToDoController {
          * model.addAttribute("todoItems", todoItems);
          */
 
-        return new ResponseEntity<>(todos, HttpStatus.OK);
+        /*
+         * return new ResponseEntity<>(todos, HttpStatus.OK);
+         * }
+         */
+
     }
 
 }

@@ -1,5 +1,5 @@
 package com.example.todo.services;
 
-public class ToDoServiceImpl {
+public class ToDoServiceImpl implements ToDoService {
 
 }
