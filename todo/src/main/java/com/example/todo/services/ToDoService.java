@@ -10,9 +10,9 @@ public interface ToDoService {
 
     public List<ToDoModel> findAll();
 
-    public ToDoModel findbyId();
+    public ToDoModel findbyId(String id);
 
-    public void update();
+    public void update(String id);
 
-    public void delete();
+    public void delete(String id);
 }
