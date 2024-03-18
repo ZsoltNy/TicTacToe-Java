@@ -6,13 +6,13 @@ import com.example.todo.modells.ToDoModel;
 
 public interface ToDoService {
 
-    ToDoModel create();
+    public ToDoModel create();
 
-    List<ToDoModel> findAll();
+    public List<ToDoModel> findAll();
 
-    ToDoModel findbyId(String id);
+    public ToDoModel findbyId();
 
-    void update(String id);
+    public void update();
 
-    void delete();
+    public void delete();
 }
