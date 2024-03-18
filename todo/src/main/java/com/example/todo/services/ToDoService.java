@@ -6,7 +6,7 @@ import com.example.todo.modells.ToDoModel;
 
 public interface ToDoService {
 
-    public ToDoModel create();
+    public ToDoModel create(ToDoModel toDoModel);
 
     public List<ToDoModel> findAll();
 

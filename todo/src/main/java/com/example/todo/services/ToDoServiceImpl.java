@@ -3,8 +3,11 @@ package com.example.todo.services;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.todo.modells.ToDoModel;
 
+@Service
 public class ToDoServiceImpl implements ToDoService {
 
     private List<ToDoModel> ToDoList = Arrays.asList(new ToDoModel("first task", "create todo list", false),
@@ -12,21 +15,22 @@ public class ToDoServiceImpl implements ToDoService {
             new ToDoModel("third task", "finish todo list", false));
 
     @Override
-    public ToDoModel create() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'create'");
+    public void create(ToDoModel toDoModel) {
+        ToDoList.add(toDoModel);
     }
 
     @Override
     public List<ToDoModel> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return ToDoList;
     }
 
     @Override
     public ToDoModel findbyId(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findbyId'");
+        return ToDoList
+                .stream()
+                .filter(todo -> todo.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
