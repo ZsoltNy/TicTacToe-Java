@@ -45,7 +45,7 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public void delete(String id) {
-        toDoList.remove(id);
+        toDoList.removeIf(toDoModel -> toDoModel.getId().equals(id));
     }
 
 }
