@@ -1,19 +1,22 @@
 package com.example.todo.modells;
 
-public class ToDoModel {
+import java.util.UUID;
 
-    public ToDoModel() {
-    }
+public class ToDoModel {
 
     private String id;
     private String task;
     private boolean completed;
     private String description;
 
-    public ToDoModel(String id, String task, boolean completed) {
-        this.id = id;
+    public ToDoModel() {
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public ToDoModel(String task) {
+        this.id = UUID.randomUUID().toString();
         this.task = task;
-        this.completed = completed;
+        this.completed = false;
     }
 
     public String getId() {

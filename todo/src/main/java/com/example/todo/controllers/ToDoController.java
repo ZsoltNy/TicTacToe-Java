@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,9 +33,15 @@ public class ToDoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@PathVariable String id) {
-        service.update(id);
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody ToDoModel updatedModel) {
+        service.update(id, updatedModel);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<Void> addToDo(@RequestBody ToDoModel toDoModel) {
+        service.create(new ToDoModel(toDoModel.getId(), toDoModel.getTask()));
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
