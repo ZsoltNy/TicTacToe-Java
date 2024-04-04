@@ -40,7 +40,7 @@ public class ToDoController {
 
     @PostMapping("/")
     public ResponseEntity<Void> addToDo(@RequestBody ToDoModel toDoModel) {
-        service.create(new ToDoModel(toDoModel.getId(), toDoModel.getTask()));
+        service.create(new ToDoModel(toDoModel.getTask()));
         return ResponseEntity.ok().build();
     }
 

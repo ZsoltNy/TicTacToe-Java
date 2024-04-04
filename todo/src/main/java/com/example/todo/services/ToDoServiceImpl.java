@@ -11,9 +11,9 @@ import com.example.todo.modells.ToDoModel;
 @Service
 public class ToDoServiceImpl implements ToDoService {
 
-    private List<ToDoModel> toDoList = new ArrayList<>(Arrays.asList(new ToDoModel("first_task", "create todo list"),
-            new ToDoModel("second_task", "work on todo list"),
-            new ToDoModel("third_task", "finish todo list")));
+    private List<ToDoModel> toDoList = new ArrayList<>(Arrays.asList(new ToDoModel("create todo list"),
+            new ToDoModel("work on todo list"),
+            new ToDoModel("finish todo list")));
 
     @Override
     public void create(ToDoModel toDoModel) {
