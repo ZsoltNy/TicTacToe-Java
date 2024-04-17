@@ -24,9 +24,9 @@ if (timeOfDay === "morning") {
 }
 
 // 📏 Example 3: Nested if-else statement
-let age = 17;
+//let age = 17;
 let hasID = true;
-if (age >= 18) {
+/*if (age >= 18) {
   if (hasID) {
     console.log("You can enter the club.");
   } else {
@@ -34,7 +34,7 @@ if (age >= 18) {
   }
 } else {
   console.log("You are too young to enter the club.");
-}
+}*/
 
 // Ternary Operator
 
