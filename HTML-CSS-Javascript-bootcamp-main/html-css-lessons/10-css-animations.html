@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Example</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px auto;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Animations Example</h1>
+    <div class="box">Animated Box</div>
+
+    <!-- Tasks related to CSS Animations -->
+    <h2>Tasks:</h2>
+    <ol>
+        <li>Create a CSS animation that animates an element on hover or page load.</li>
+        <li>Experiment with different animation properties such as duration, timing function, and delay.</li>
+        <li>Combine multiple animations to create complex effects.</li>
+        <li>Explore CSS animation libraries for advanced animation effects.</li>
+    </ol>
+</body>
+</html>

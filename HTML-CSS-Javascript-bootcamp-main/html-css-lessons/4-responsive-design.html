@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .box {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 200px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 768px) {
+            .box {
+                width: 70%;
+                margin-right: 15%;
+                margin-left: 15%;
+            }
+            .box:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Responsive web design is an approach to designing websites that ensures 
+        optimal viewing and interaction experiences across a wide range of devices 
+        and screen sizes.
+    </p>  
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+    <h2>Tasks for Responsive Web Design:</h2>
+    <ul>
+        <li>Create a basic webpage layout using HTML and CSS that adjusts smoothly across different screen sizes.</li>
+        <li>Implement media queries to change the layout, font sizes, and other styling aspects based on specific viewport widths.</li>
+        <li>Test the responsiveness of your webpage using browser developer tools.</li>
+        <li>Experiment with different CSS frameworks like Bootstrap or Foundation to understand their responsive design utilities and grid systems.</li>
+    </ul>
+</body>
+</html>
