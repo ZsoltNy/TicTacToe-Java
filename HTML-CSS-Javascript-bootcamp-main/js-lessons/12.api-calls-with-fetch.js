@@ -48,6 +48,17 @@ fetch("https://jsonplaceholder.typicode.com/posts/1", {
 }).then((response) => console.log("Deleted"));
 
 // Tasks:
-// 🎈Fetch a list of todos from the JSONPlaceholder API
-// 🎆Fetch comments for a specific post from the JSONPlaceholder API
-// 🎑Fetch posts by a specific user from the JSONPlaceholder API
+// 🎈 Fetch a list of todos from the JSONPlaceholder API
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((response) => response.json())
+  .then((data) => console.log("Todos:", data));
+
+// 🎆 Fetch comments for a specific post from the JSONPlaceholder API
+fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
+  .then((response) => response.json())
+  .then((data) => console.log("Comments for post 1:", data));
+
+// 🎑 Fetch posts by a specific user from the JSONPlaceholder API
+fetch("https://jsonplaceholder.typicode.com/posts?userId=1")
+  .then((response) => response.json())
+  .then((data) => console.log("Posts by user 1:", data));

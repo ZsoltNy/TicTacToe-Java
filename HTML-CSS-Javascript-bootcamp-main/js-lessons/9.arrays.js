@@ -49,10 +49,39 @@ console.log("All fruits array:", allFruits);
 
 // Tasks:
 // 🍴 Create an array containing your favorite food items and print it.
+let favoriteFoods = ["pizza", "sushi", "burger"];
+console.log("Favorite foods:", favoriteFoods);
+
 // 🛒 Add a new food item to your array and print the updated array.
+favoriteFoods.push("tacos");
+console.log("Updated array after adding 'tacos':", favoriteFoods);
+
 // 🥢 Remove the third food item from your array and print the updated array.
+favoriteFoods.splice(2, 1);
+console.log("Updated array after removing the third item:", favoriteFoods);
+
 // 🥤 Create an array containing your favorite drinks and concatenate it with your food array. Print the resulting array.
+let favoriteDrinks = ["cola", "coffee", "tea"];
+let combinedArray = favoriteFoods.concat(favoriteDrinks);
+console.log("Combined array of favorite foods and drinks:", combinedArray);
+
 // 🍽️ Reverse the order of elements in your food array and print it.
+favoriteFoods.reverse();
+console.log("Reversed array of favorite foods:", favoriteFoods);
+
 // 🍳 Remove the last element from your food array and print both the updated array and the removed element.
+let removedFood = favoriteFoods.pop();
+console.log("Updated array after removing the last element:", favoriteFoods);
+console.log("Removed element:", removedFood);
+
 // 🍦 Remove the first element from your drinks array and print both the updated array and the removed element.
+let removedDrink = favoriteDrinks.shift();
+console.log(
+  "Updated array of drinks after removing the first element:",
+  favoriteDrinks
+);
+console.log("Removed element from drinks:", removedDrink);
+
 // 🎂 Check if "pizza" is included in your food array and print the result.
+let includesPizza = favoriteFoods.includes("pizza");
+console.log("Does the food array include 'pizza'?", includesPizza);
