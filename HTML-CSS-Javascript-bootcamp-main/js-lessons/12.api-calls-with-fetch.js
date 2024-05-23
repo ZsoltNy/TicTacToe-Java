@@ -5,12 +5,12 @@ It includes examples and explanations of how to use fetch to retrieve data from 
 
 // Most used types of http calls: get, post, put, delete
 
-fetch("http://localhost:8080/api/todos")
+fetch("http://localhost:8080/todos")
   .then((response) => response.json())
   .then((data) => console.log("Todos:", data));
 
-// 📦 Sending data to a REST API with POST method
-fetch("http://localhost:8080/api/todos", {
+//📦 Sending data to a REST API with POST method
+fetch("http://localhost:8080/todos", {
   method: "POST",
   body: JSON.stringify({
     task: "New Task",
@@ -24,8 +24,8 @@ fetch("http://localhost:8080/api/todos", {
   .then((response) => response.json())
   .then((data) => console.log(data));
 
-// 🗺️ Update existing data in the API
-fetch("http://localhost:8080/api/todos/1", {
+/* 🗺️ Update existing data in the API
+fetch("http://localhost:8080/todos/1", {
   method: "PUT",
   body: JSON.stringify({
     task: "Updated Task",
@@ -40,11 +40,11 @@ fetch("http://localhost:8080/api/todos/1", {
   .then((data) => console.log(data));
 
 // 🎮 Delete data from the API
-fetch("http://localhost:8080/api/todos/1", {
+fetch("http://localhost:8080/todos/1", {
   method: "DELETE",
-}).then((response) => console.log("Deleted"));
+}).then((response) => console.log("Deleted"));*/
 
-// Tasks:
+/* Tasks:
 // 🎈 Fetch a list of todos from the JSONPlaceholder API
 fetch("https://jsonplaceholder.typicode.com/todos")
   .then((response) => response.json())
@@ -58,4 +58,4 @@ fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
 // 🎑 Fetch posts by a specific user from the JSONPlaceholder API
 fetch("https://jsonplaceholder.typicode.com/posts?userId=1")
   .then((response) => response.json())
-  .then((data) => console.log("Posts by user 1:", data));
+  .then((data) => console.log("Posts by user 1:", data));*/
