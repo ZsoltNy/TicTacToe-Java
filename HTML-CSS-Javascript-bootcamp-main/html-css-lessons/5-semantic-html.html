@@ -53,3 +53,155 @@
     </ol>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #495057;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        article {
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        aside {
+            flex: 0 0 300px;
+            margin: 10px;
+            padding: 20px;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            nav {
+                text-align: center;
+            }
+
+            main {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            aside {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            header, footer {
+                padding: 10px;
+            }
+
+            main {
+                padding: 5px;
+            }
+
+            article, aside {
+                margin: 5px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: Semantic HTML elements -->
+    <header>
+        <h1>My Blog</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Task 3: Responsive layout using semantic HTML -->
+    <main>
+        <!-- Task 4: Blog layout using semantic HTML5 elements -->
+        <article>
+            <h2>Blog Post Title 1</h2>
+            <p>Posted on May 23, 2024</p>
+            <p>This is the content of the first blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        <article>
+            <h2>Blog Post Title 2</h2>
+            <p>Posted on May 22, 2024</p>
+            <p>This is the content of the second blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        <article>
+            <h2>Blog Post Title 3</h2>
+            <p>Posted on May 21, 2024</p>
+            <p>This is the content of the third blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        
+        <!-- Sidebar with recent posts or categories -->
+        <aside>
+            <h3>About Me</h3>
+            <p>This is the sidebar content. You can add information about yourself or recent posts here.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Blog</p>
+    </footer>
+</body>
+</html>
