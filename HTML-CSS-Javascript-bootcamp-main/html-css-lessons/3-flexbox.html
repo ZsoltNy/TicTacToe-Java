@@ -43,3 +43,176 @@
     </ol>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        ol {
+            margin-bottom: 40px;
+        }
+
+        /* Task 1: Flexbox layout that aligns items horizontally */
+        .flex-horizontal {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #eee;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .flex-horizontal > div {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        /* Task 2: Flexbox navigation bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #343a40;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #495057;
+            border-radius: 5px;
+        }
+
+        /* Task 3: Card layout with Flexbox */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .flex-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+        }
+
+        /* Task 4: Vertically center content within a container */
+        .vertical-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color: #eee;
+            margin-bottom: 20px;
+        }
+
+        .vertical-center > div {
+            background-color: #28a745;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        /* Task 5: Grid-like layout using Flexbox */
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .image-grid img {
+            width: calc(33.333% - 10px);
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .image-grid img {
+                width: calc(50% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Tasks:</h2>
+    <ol>
+        <li>Create a layout using Flexbox that aligns items horizontally.</li>
+        <li>Implement a navigation bar using Flexbox.</li>
+        <li>Create a card layout with Flexbox for displaying content.</li>
+        <li>Use Flexbox to vertically center content within a container.</li>
+        <li>Create a grid-like layout using Flexbox for displaying images.</li>
+    </ol>
+
+    <!-- Task 1: Flexbox layout that aligns items horizontally -->
+    <div class="flex-horizontal">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+    </div>
+
+    <!-- Task 2: Flexbox navigation bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Task 3: Card layout with Flexbox -->
+    <div class="card-container">
+        <div class="flex-card">
+            <h5>Card Title 1</h5>
+            <p>This is some content inside the card.</p>
+        </div>
+        <div class="flex-card">
+            <h5>Card Title 2</h5>
+            <p>This is some content inside the card.</p>
+        </div>
+        <div class="flex-card">
+            <h5>Card Title 3</h5>
+            <p>This is some content inside the card.</p>
+        </div>
+    </div>
+
+    <!-- Task 4: Vertically center content within a container -->
+    <div class="vertical-center">
+        <div>Centered Content</div>
+    </div>
+
+    <!-- Task 5: Grid-like layout using Flexbox for displaying images -->
+    <div class="image-grid">
+        <img src="https://via.placeholder.com/150" alt="Image 1">
+        <img src="https://via.placeholder.com/150" alt="Image 2">
+        <img src="https://via.placeholder.com/150" alt="Image 3">
+        <img src="https://via.placeholder.com/150" alt="Image 4">
+        <img src="https://via.placeholder.com/150" alt="Image 5">
+        <img src="https://via.placeholder.com/150" alt="Image 6">
+    </div>
+</body>
+</html>
+

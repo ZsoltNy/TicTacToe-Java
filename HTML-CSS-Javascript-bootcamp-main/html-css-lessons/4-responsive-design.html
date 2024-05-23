@@ -56,3 +56,148 @@
     </ul>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .sidebar {
+            background-color: #eee;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Task 2: Media queries for responsive design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            header, footer {
+                text-align: center;
+                padding: 10px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .sidebar {
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            header, footer {
+                padding: 5px;
+            }
+
+            .content {
+                padding: 5px;
+            }
+
+            .sidebar {
+                margin-top: 5px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: Basic webpage layout -->
+    <header>
+        <h1>Responsive Web Design Example</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 content">
+                <h2>Main Content Area</h2>
+                <p>This is the main content area. It should adjust smoothly across different screen sizes.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="col-md-4 sidebar">
+                <h3>Sidebar</h3>
+                <p>This is a sidebar. It should stack below the main content area on smaller screens.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Responsive Web Design Example</p>
+    </footer>
+
+    <!-- Task 3: Instructions for testing responsiveness -->
+    <!-- 
+        Use browser developer tools to test the responsiveness:
+        1. Right-click on the page and select "Inspect" or press F12.
+        2. Click on the "Toggle device toolbar" button (usually an icon of a phone and a tablet).
+        3. Resize the viewport to see how the layout changes at different screen sizes.
+    -->
+
+    <!-- Task 4: Example using Bootstrap grid system -->
+    <div class="container mt-5">
+        <h2>Bootstrap Grid System</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 1</h5>
+                        <p class="card-text">This is some content inside the card.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 2</h5>
+                        <p class="card-text">This is some content inside the card.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 3</h5>
+                        <p class="card-text">This is some content inside the card.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
