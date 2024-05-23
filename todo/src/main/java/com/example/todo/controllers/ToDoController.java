@@ -21,33 +21,47 @@ public class ToDoController {
     @Autowired
     private ToDoService service;
 
-    @GetMapping("/")
+    @GetMapping("/todos")
     public ResponseEntity<List<ToDoModel>> findAll() {
-        return ResponseEntity.ok(service.findAll());
+        List<ToDoModel> todos = service.findAll();
+        return ResponseEntity.ok(todos);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/todos/{id}")
     public ResponseEntity<ToDoModel> findById(@PathVariable String id) {
-        return ResponseEntity.ok(service.findbyId(id));
-
+        ToDoModel todo = service.findbyId(id);
+        if (todo != null) {
+            return ResponseEntity.ok(todo);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody ToDoModel updatedModel) {
-        service.update(id, updatedModel);
-        return ResponseEntity.noContent().build();
-    }
-
-    @PostMapping("/")
+    @PostMapping("/todos")
     public ResponseEntity<Void> addToDo(@RequestBody ToDoModel toDoModel) {
-        service.create(new ToDoModel(toDoModel.getTask()));
+        service.create(toDoModel);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @PutMapping("/todos/{id}")
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody ToDoModel updatedModel) {
+        ToDoModel existingTodo = service.findbyId(id);
+        if (existingTodo != null) {
+            service.update(id, updatedModel);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/todos/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
-        service.delete(id);
-        return ResponseEntity.ok().build();
+        ToDoModel existingTodo = service.findbyId(id);
+        if (existingTodo != null) {
+            service.delete(id);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
-
 }
