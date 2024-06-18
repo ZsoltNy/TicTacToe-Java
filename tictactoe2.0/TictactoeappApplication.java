@@ -90,26 +90,45 @@ public class TictactoeappApplication {
 		TictactoeappApplication game = new TictactoeappApplication();
 		game.printBoard();
 		boolean gameEnded = false;
-
+	
 		while (!gameEnded) {
 			int row, col;
-			System.out.println("Player " + game.currentPlayer + "'s turn. Enter row and column (0, 1, or 2): ");
-			row = scanner.nextInt();
-			col = scanner.nextInt();
-
-			if (game.placeMark(row, col)) {
-				game.printBoard();
-				if (game.checkWin()) {
-					System.out.println("Player " + game.currentPlayer + " wins!");
-					gameEnded = true;
-				} else if (game.checkDraw()) {
-					System.out.println("The game is a draw!");
-					gameEnded = true;
-				} else {
-					game.changePlayer();
+	
+			System.out.println("Player " + game.currentPlayer + "'s turn. Enter row and column (0, 1, or 2) separated by a space: ");
+			
+			// Read the entire line of input
+			String input = scanner.nextLine();
+			
+			// Split the input into row and column parts
+			String[] parts = input.trim().split("\\s+"); // \\s+ is a regex that matches one or more spaces
+			
+			// Validate input length
+			if (parts.length == 2) {
+				try {
+					// Parse the row and column values
+					row = Integer.parseInt(parts[0]);
+					col = Integer.parseInt(parts[1]);
+					
+					// Place the mark and check the game state
+					if (game.placeMark(row, col)) {
+						game.printBoard();
+						if (game.checkWin()) {
+							System.out.println("Player " + game.currentPlayer + " wins!");
+							gameEnded = true;
+						} else if (game.checkDraw()) {
+							System.out.println("The game is a draw!");
+							gameEnded = true;
+						} else {
+							game.changePlayer();
+						}
+					} else {
+						System.out.println("This position is already occupied or invalid. Try again.");
+					}
+				} catch (NumberFormatException e) {
+					System.out.println("Invalid input. Please enter valid numbers for row and column.");
 				}
 			} else {
-				System.out.println("This position is already occupied. Try again.");
+				System.out.println("Invalid input format. Please enter two numbers separated by a space.");
 			}
 		}
 		scanner.close();
