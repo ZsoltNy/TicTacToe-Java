@@ -92,45 +92,60 @@ public class TictactoeappApplication {
 		boolean gameEnded = false;
 	
 		while (!gameEnded) {
-			int row, col;
-	
-			System.out.println("Player " + game.currentPlayer + "'s turn. Enter row and column (0, 1, or 2) separated by a space: ");
-			
-			// Read the entire line of input
-			String input = scanner.nextLine();
-			
-			// Split the input into row and column parts
-			String[] parts = input.trim().split("\\s+"); // \\s+ is a regex that matches one or more spaces
-			
-			// Validate input length
-			if (parts.length == 2) {
-				try {
-					// Parse the row and column values
-					row = Integer.parseInt(parts[0]);
-					col = Integer.parseInt(parts[1]);
-					
-					// Place the mark and check the game state
-					if (game.placeMark(row, col)) {
-						game.printBoard();
-						if (game.checkWin()) {
-							System.out.println("Player " + game.currentPlayer + " wins!");
-							gameEnded = true;
-						} else if (game.checkDraw()) {
-							System.out.println("The game is a draw!");
-							gameEnded = true;
-						} else {
-							game.changePlayer();
-						}
-					} else {
-						System.out.println("This position is already occupied or invalid. Try again.");
-					}
-				} catch (NumberFormatException e) {
-					System.out.println("Invalid input. Please enter valid numbers for row and column.");
+			try {
+				System.out.println("Player " + game.currentPlayer + "'s turn. Enter row and column (0, 1, or 2) separated by a space: ");
+				
+				// Read the entire line of input
+				String input = scanner.nextLine();
+				
+				// Split the input into row and column parts
+				String[] parts = input.trim().split("\\s+");
+				
+				// Validate input length
+				if (parts.length != 2) {
+					throw new IllegalArgumentException("Invalid input format. Please enter two numbers separated by a space.");
 				}
-			} else {
-				System.out.println("Invalid input format. Please enter two numbers separated by a space.");
+				
+				// Parse the row and column values
+				int row = Integer.parseInt(parts[0]);
+				int col = Integer.parseInt(parts[1]);
+	
+				// Check if the row and column are within valid range
+				if (row < 0 || row > 2 || col < 0 || col > 2) {
+					throw new IndexOutOfBoundsException("Row and column must be between 0 and 2.");
+				}
+				
+				// Attempt to place the mark
+				if (!game.placeMark(row, col)) {
+					throw new IllegalStateException("This position is already occupied. Try again.");
+				}
+				
+				// Print the board after placing the mark
+				game.printBoard();
+				
+				// Check if the game has ended
+				if (game.checkWin()) {
+					System.out.println("Player " + game.currentPlayer + " wins!");
+					gameEnded = true;
+				} else if (game.checkDraw()) {
+					System.out.println("The game is a draw!");
+					gameEnded = true;
+				} else {
+					game.changePlayer();
+				}
+	
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid input. Please enter valid numbers for row and column.");
+			} catch (IndexOutOfBoundsException e) {
+				System.out.println(e.getMessage());  // Custom message for out-of-bounds error
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());  // Custom message for input format error
+			} catch (IllegalStateException e) {
+				System.out.println(e.getMessage());  // Custom message for already occupied position
+			} catch (Exception e) {
+				System.out.println("An unexpected error occurred: " + e.getMessage());
 			}
 		}
 		scanner.close();
 	}
-}
+}	
