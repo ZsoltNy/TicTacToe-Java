@@ -4,12 +4,14 @@ public class TictactoeappApplication {
 	private char[][] board;
 	private char currentPlayer;
 
+	// Konstruktor
 	public TictactoeappApplication() {
 		board = new char[3][3];
 		currentPlayer = 'X';
 		initializeBoard();
 	}
 
+	// Tábla inicializálása
 	public void initializeBoard() {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
@@ -18,6 +20,7 @@ public class TictactoeappApplication {
 		}
 	}
 
+	// Tábla kiírása
 	public void printBoard() {
 		System.out.println("-------------");
 		for (int i = 0; i < 3; i++) {
@@ -30,10 +33,12 @@ public class TictactoeappApplication {
 		}
 	}
 
+	// Győzelem ellenőrzése
 	public boolean checkWin() {
 		return (checkRows() || checkColumns() || checkDiagonals());
 	}
 
+	// Döntetlen ellenőrzése
 	public boolean checkDraw() {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
@@ -45,10 +50,12 @@ public class TictactoeappApplication {
 		return true;
 	}
 
+	// Játékos váltása
 	public void changePlayer() {
 		currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
 	}
 
+	// Jel elhelyezése
 	public boolean placeMark(int row, int col) {
 		if (row >= 0 && col >= 0 && row < 3 && col < 3) {
 			if (board[row][col] == '-') {
@@ -59,6 +66,7 @@ public class TictactoeappApplication {
 		return false;
 	}
 
+	// Sorok ellenőrzése győzelemre
 	private boolean checkRows() {
 		for (int i = 0; i < 3; i++) {
 			if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != '-') {
@@ -68,6 +76,7 @@ public class TictactoeappApplication {
 		return false;
 	}
 
+	// Oszlopok ellenőrzése győzelemre
 	private boolean checkColumns() {
 		for (int i = 0; i < 3; i++) {
 			if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != '-') {
@@ -77,6 +86,7 @@ public class TictactoeappApplication {
 		return false;
 	}
 
+	// Átlók ellenőrzése győzelemre
 	private boolean checkDiagonals() {
 		if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != '-') ||
 				(board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != '-')) {
@@ -85,67 +95,66 @@ public class TictactoeappApplication {
 		return false;
 	}
 
-	public static void main(String[] args) {
+	// Az alkalmazás futtatása
+	public void run() {
 		Scanner scanner = new Scanner(System.in);
-		TictactoeappApplication game = new TictactoeappApplication();
-		game.printBoard();
+		printBoard();
 		boolean gameEnded = false;
-	
+
 		while (!gameEnded) {
 			try {
-				System.out.println("Player " + game.currentPlayer + "'s turn. Enter row and column (0, 1, or 2) separated by a space: ");
-				
-				// Read the entire line of input
+				System.out.println("Játékos " + currentPlayer
+						+ " következik. Adja meg a sort és az oszlopot (0, 1 vagy 2) szóközzel elválasztva: ");
+
 				String input = scanner.nextLine();
-				
-				// Split the input into row and column parts
+
 				String[] parts = input.trim().split("\\s+");
-				
-				// Validate input length
+
 				if (parts.length != 2) {
-					throw new IllegalArgumentException("Invalid input format. Please enter two numbers separated by a space.");
+					throw new IllegalArgumentException(
+							"Helytelen formátum. Kérem, adjon meg két számot szóközzel elválasztva.");
 				}
-				
-				// Parse the row and column values
+
 				int row = Integer.parseInt(parts[0]);
 				int col = Integer.parseInt(parts[1]);
-	
-				// Check if the row and column are within valid range
+
 				if (row < 0 || row > 2 || col < 0 || col > 2) {
-					throw new IndexOutOfBoundsException("Row and column must be between 0 and 2.");
+					throw new IndexOutOfBoundsException("A sor és oszlop értékeknek 0 és 2 között kell lenniük.");
 				}
-				
-				// Attempt to place the mark
-				if (!game.placeMark(row, col)) {
-					throw new IllegalStateException("This position is already occupied. Try again.");
+
+				if (!placeMark(row, col)) {
+					throw new IllegalStateException("Ez a pozíció már foglalt. Próbálja újra.");
 				}
-				
-				// Print the board after placing the mark
-				game.printBoard();
-				
-				// Check if the game has ended
-				if (game.checkWin()) {
-					System.out.println("Player " + game.currentPlayer + " wins!");
+
+				printBoard();
+
+				if (checkWin()) {
+					System.out.println("Játékos " + currentPlayer + " nyert!");
 					gameEnded = true;
-				} else if (game.checkDraw()) {
-					System.out.println("The game is a draw!");
+				} else if (checkDraw()) {
+					System.out.println("A játék döntetlennel végződött!");
 					gameEnded = true;
 				} else {
-					game.changePlayer();
+					changePlayer();
 				}
-	
+
 			} catch (NumberFormatException e) {
-				System.out.println("Invalid input. Please enter valid numbers for row and column.");
+				System.out.println("Érvénytelen bemenet. Kérem, számokat adjon meg a sor és oszlop értékekhez.");
 			} catch (IndexOutOfBoundsException e) {
-				System.out.println(e.getMessage());  // Custom message for out-of-bounds error
+				System.out.println(e.getMessage());
 			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());  // Custom message for input format error
+				System.out.println(e.getMessage());
 			} catch (IllegalStateException e) {
-				System.out.println(e.getMessage());  // Custom message for already occupied position
+				System.out.println(e.getMessage());
 			} catch (Exception e) {
-				System.out.println("An unexpected error occurred: " + e.getMessage());
+				System.out.println("Váratlan hiba történt: " + e.getMessage());
 			}
 		}
 		scanner.close();
 	}
-}	
+
+	public static void main(String[] args) {
+		TictactoeappApplication game = new TictactoeappApplication();
+		game.run();
+	}
+}
