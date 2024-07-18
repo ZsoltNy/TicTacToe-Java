@@ -175,8 +175,6 @@ public class TictactoeappApplication {
 				System.out.println("Érvénytelen bemenet. Kérem, számokat adjon meg a sor és oszlop értékekhez.");
 			} catch (IndexOutOfBoundsException e) {
 				System.out.println(e.getMessage());
-				System.out.println(e.getMessage());
-				System.out.println(e.getMessage());
 			} catch (Exception e) {
 				System.out.println("Váratlan hiba történt: " + e.getMessage());
 			}
