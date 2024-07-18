@@ -1,13 +1,14 @@
 import java.util.Random;
 
 public class Robot {
-    private Random random;
+    // private Random random;
 
     public Robot() {
-        random = new Random();
+        // random = new Random();
     }
 
-    public void makeMove(TicTacToe game) {
+    public void makeMove(GameTable game) {
+        Random random = new Random();
         int row, col;
         do {
             row = random.nextInt(3);

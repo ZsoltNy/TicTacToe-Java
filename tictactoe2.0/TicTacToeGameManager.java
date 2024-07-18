@@ -1,41 +1,39 @@
 import java.util.Scanner;
 
-public class TicTacToeApp {
-    private TicTacToe game;
+public class TicTacToeGameManager {
+    private GameTable game;
     private Leaderboard leaderboard;
     private Robot robot;
     private String playerX;
     private String playerO;
 
-    public TicTacToeApp() {
-        game = new TicTacToe();
+    public TicTacToeGameManager() {
+        game = new GameTable();
         leaderboard = new Leaderboard();
         robot = new Robot();
     }
 
     public void showMenu() {
         Scanner scanner = new Scanner(System.in);
-        boolean exit = false;
 
-        while (!exit) {
+        loop: while (true) {
             System.out.println("1. Új játék");
             System.out.println("2. Leaderboard megtekintése");
             System.out.println("3. Kilépés");
             System.out.print("Válasszon egy opciót: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    startGame(scanner);
+                    startGame();
                     break;
                 case 2:
                     leaderboard.printLeaderboard();
                     break;
                 case 3:
-                    exit = true;
-                    break;
+                    break loop;
                 default:
                     System.out.println("Érvénytelen opció. Kérem, válasszon újra.");
             }
@@ -43,14 +41,16 @@ public class TicTacToeApp {
         scanner.close();
     }
 
-    public void startGame(Scanner scanner) {
+    public void startGame() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Adja meg az 'X' játékos nevét: ");
         playerX = scanner.nextLine();
         System.out.print("Adja meg az 'O' játékos nevét (ha 'Robot', akkor a gép játszik): ");
         playerO = scanner.nextLine();
 
         game.setCurrentPlayer('X');
-        game.initializeBoard(); // Reset the board for a new game
+        game.initializeNewBoard(); // Reset the board for a new game
         game.printBoard();
         boolean gameEnded = false;
 
@@ -107,17 +107,10 @@ public class TicTacToeApp {
         }
 
         leaderboard.printLeaderboard();
+        scanner.close();
     }
 
     private String getCurrentPlayerName() {
         return (game.getCurrentPlayer() == 'X') ? playerX : playerO;
-    }
-
-    public void run() {
-        showMenu();
-    }
-
-    public static void main(String[] args) {
-        new TicTacToeApp().run();
     }
 }

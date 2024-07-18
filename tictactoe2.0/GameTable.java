@@ -1,14 +1,14 @@
-public class TicTacToe {
+public class GameTable {
     private char[][] board;
     private char currentPlayer;
 
-    public TicTacToe() {
+    public GameTable() {
         board = new char[3][3];
         currentPlayer = 'X';
-        initializeBoard();
+        initializeNewBoard();
     }
 
-    public void initializeBoard() {
+    public void initializeNewBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 board[i][j] = '-';
