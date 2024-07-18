@@ -31,7 +31,7 @@ public class TicTacToeApp {
                     robot.makeMove(game);
                 } else {
                     System.out.println("Játékos " + getCurrentPlayerName()
-                            + " következik. Adja meg a sort és az oszlopot (0, 1 vagy 2) szóközzel elválasztva: ");
+                            + " következik. Adja meg a sort és az oszlopot (1, 2 vagy 3) szóközzel elválasztva: ");
 
                     String input = scanner.nextLine();
 
@@ -42,11 +42,11 @@ public class TicTacToeApp {
                                 "Helytelen formátum. Kérem, adjon meg két számot szóközzel elválasztva.");
                     }
 
-                    int row = Integer.parseInt(parts[0]);
-                    int col = Integer.parseInt(parts[1]);
+                    int row = Integer.parseInt(parts[0]) - 1;
+                    int col = Integer.parseInt(parts[1]) - 1;
 
                     if (row < 0 || row > 2 || col < 0 || col > 2) {
-                        throw new IndexOutOfBoundsException("A sor és oszlop értékeknek 0 és 2 között kell lenniük.");
+                        throw new IndexOutOfBoundsException("A sor és oszlop értékeknek 1 és 3 között kell lenniük.");
                     }
 
                     if (!game.placeMark(row, col)) {
