@@ -13,7 +13,7 @@ public class TicTacToeApp {
         robot = new Robot();
     }
 
-    public void run() {
+    public void startGame() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Adja meg az 'X' játékos nevét: ");
@@ -83,6 +83,10 @@ public class TicTacToeApp {
 
     private String getCurrentPlayerName() {
         return (game.getCurrentPlayer() == 'X') ? playerX : playerO;
+    }
+
+    public void run() {
+        startGame();
     }
 
     public static void main(String[] args) {
