@@ -90,7 +90,6 @@ public class TicTacToeApp {
     }
 
     public static void main(String[] args) {
-        TicTacToeApp app = new TicTacToeApp();
-        app.run();
+        new TicTacToeApp().run();
     }
 }
