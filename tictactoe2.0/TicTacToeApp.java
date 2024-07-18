@@ -13,15 +13,44 @@ public class TicTacToeApp {
         robot = new Robot();
     }
 
-    public void startGame() {
+    public void showMenu() {
         Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
 
+        while (!exit) {
+            System.out.println("1. Új játék");
+            System.out.println("2. Leaderboard megtekintése");
+            System.out.println("3. Kilépés");
+            System.out.print("Válasszon egy opciót: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();  // Consume newline
+
+            switch (choice) {
+                case 1:
+                    startGame(scanner);
+                    break;
+                case 2:
+                    leaderboard.printLeaderboard();
+                    break;
+                case 3:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Érvénytelen opció. Kérem, válasszon újra.");
+            }
+        }
+        scanner.close();
+    }
+
+    public void startGame(Scanner scanner) {
         System.out.print("Adja meg az 'X' játékos nevét: ");
         playerX = scanner.nextLine();
         System.out.print("Adja meg az 'O' játékos nevét (ha 'Robot', akkor a gép játszik): ");
         playerO = scanner.nextLine();
 
         game.setCurrentPlayer('X');
+        game.initializeBoard(); // Reset the board for a new game
         game.printBoard();
         boolean gameEnded = false;
 
@@ -78,7 +107,6 @@ public class TicTacToeApp {
         }
 
         leaderboard.printLeaderboard();
-        scanner.close();
     }
 
     private String getCurrentPlayerName() {
@@ -86,7 +114,7 @@ public class TicTacToeApp {
     }
 
     public void run() {
-        startGame();
+        showMenu();
     }
 
     public static void main(String[] args) {
